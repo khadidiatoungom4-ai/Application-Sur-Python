@@ -8,7 +8,7 @@ Mo = float(input("Taille en Mo : "))
 format = input("Format (csv/json) : ")
 public = input("Public True/False : ")
 
-# Partie 2 Structure de controle
+# Partie 2 Structure de controle : Creation d'un menu interactif
 while True:
 
     print("\n====================")
@@ -35,3 +35,20 @@ while True:
 
     else:
         print("Choix invalide")
+# Partie 3: Dictionnaires
+dataset = {
+    "nom": nom,
+    "domaine": domaine,
+    "lignes": lignes,
+    "colonnes": colonnes,
+    "taille": Mo,
+    "format": format,
+    "public": public
+}
+print(dataset["nom"])
+print(dataset["domaine"])
+print(dataset["lignes"])
+print(dataset["colonnes"])
+print(dataset["taille"])
+print(dataset["format"])
+print(dataset["public"])
