@@ -1,1 +1,8 @@
-main.py
+print("  Les métadonnées d'un dataset  ")
+nom  = input("Nom du projet :  ")
+domaine = input("Domaine : ")
+lignes = int(input("Nombre de lignes : "))
+colonnes = int(input("Nombre de colonnes : "))
+Mo = float(input("Taille en Mo : "))
+format = input("Format (csv/json) : ")
+public = input("Public True/False : ")
