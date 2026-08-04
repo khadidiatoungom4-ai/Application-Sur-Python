@@ -52,3 +52,18 @@ print(dataset["colonnes"])
 print(dataset["taille"])
 print(dataset["format"])
 print(dataset["public"])
+# Partie 4: Tuples 
+domaines = (
+    "Santé",
+    "Finance",
+    "Agriculture",
+    "Transport",
+    "Education"
+)
+if domaine not in domaines:
+ print("Domaine non autorisé")
+ domaine = input("Domaine : ")
+if domaine in domaines:
+    print("Domaine autorisé.")
+else:
+    print("Erreur : domaine non autorisé.")
