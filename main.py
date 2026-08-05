@@ -40,7 +40,8 @@ while True:
     print("4. Trier")
     print("5. Modifier")
     print("6. Supprimer")
-    print("7. Quitter")
+    print("7. Statistiques")
+    print("8. Quitter")
     print("====================")
 
     choix = input("Votre choix : ")
@@ -125,14 +126,36 @@ while True:
         if not trouve:
          print("dataset introuvable.")
     if choix == "7": 
-         print("Quitter")   
-         break   
-   
+         print("Nombre de datasets :", len(datasets))          ### Nombre de Datasets 
+         total = sum(d["lignes"] for d in datasets)            #### Nombre de Lignes
+         print("Nombre total de lignes :", total)
+         csv = sum(1 for d in datasets if d["format"] == "csv")  ### Nombre de datasets format csv
+
+         repartition = {                                        ## Repartition par domaine 
+         domaine: len([d for d in datasets if d["domaine"] == domaine])
+         for domaine in set(d["domaine"] for d in datasets)
+}
+         for domaine, nombre in repartition.items():
+          print(domaine, ":", nombre)
+
+
+
+    if choix == "8":
+       print("Quitter")
+       break
     else:
         print("Choix invalide")
 
 
-       
+       ########## Partie 6: Comprehensions (Listes et Dictionnaires)
+
+
+
+
+print("Nombre de datasets :", len(datasets))               ###Nombres de Datasets 
+total = sum(d["lignes"] for d in datasets)                 #### Nombres de Lignes
+print("Nombre total de lignes :", total)
+
 
 
             
