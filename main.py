@@ -28,7 +28,7 @@
 #             "Education"
 #         )
   
-# Partie 2 Structure de controle : Creation d'un menu interactif
+             ##### Partie 5 : Listes ####
 
 datasets = []
 
@@ -46,8 +46,7 @@ while True:
     choix = input("Votre choix : ")
 
     if choix == "1":
-        print(" Ajouter un dataset")
-        nom = input("")        
+        print(" Ajouter un dataset")       
         nom = input("Nom du dataset : ")
         domaine = input("Domaine : ")
         lignes = int(input("Nombre de lignes : "))
@@ -123,77 +122,17 @@ while True:
             print("dataset supprimé.")
             trouve = True
             break
-
-         if not trouve:
-          print("dataset introuvable.")
+        if not trouve:
+         print("dataset introuvable.")
     if choix == "7": 
          print("Quitter")   
          break   
    
     else:
         print("Choix invalide")
+
+
        
 
 
-            ######### Partie 3: Dictionnaires ###############
-   
-# dataset = []
-# while True:
-    
-#            print("1. Ajouter un dataset")
-
-#            choix = input("Votre choix : ")
-#            if choix == "1":
-#              print(" Ajouter un dataset")
-#              nom = input("Nom du dataset : ")
-#              DOMAINE = input("DOMAINE : ")
-#              if DOMAINE not in DOMAINE: 
-#                              print("DOMAINE non autorisé")
-#                              DOMAINE = input("DOMAINE : ")
-#              if DOMAINE in DOMAINE:
-#                               print("DOMAINE autorisé.")
-#              else: 
-#                               print("Erreur : DOMAINE non autorisé.")
-
-             
-
-#              lignes = int(input("Nombre de lignes : "))
-#              colonnes = int(input("Nombre de colonnes : "))
-#              Mo = float(input("Taille du dataset : "))
-#              format = input("Format : ")
-#              public = input("Public : ").lower() == "true"
-             
-
-        
-
-#              dataset = {
-#                 "nom": nom,
-#                 "domaine": domaine,
-#                 "lignes": lignes,
-#                 "colonnes": colonnes,
-#                 "taille": Mo,
-#                 "format": format,
-#                 "public": public
-#             }
-#            print(dataset)
-
-
-#         #              Partie 4: Tuples 
-
-#         #    domaines = (
-#         #     "Santé",
-#         #     "Finance",
-#         #     "Agriculture",
-#         #     "Transport",
-#         #     "Education"
-#         # )
-#         #    if domaine not in domaines: 
-#         #         print("Domaine non autorisé")
-#         #         domaine = input("Domaine : ")
-#         #    if domaine in domaines:
-#         #          print("Domaine autorisé.")
-#         #    else: 
-#         #          print("Erreur : domaine non autorisé.")
-
-
-# ##### Partie 5 listes 
+            
