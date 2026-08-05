@@ -28,7 +28,7 @@
 #             "Education"
 #         )
   
-             ##### Partie 5 : Listes ####
+             ##### Partie 6 : Comprehensions (Listes et Dictionnaires)
 
 datasets = []
 
@@ -137,9 +137,6 @@ while True:
 }
          for domaine, nombre in repartition.items():
           print(domaine, ":", nombre)
-
-
-
     if choix == "8":
        print("Quitter")
        break
@@ -147,14 +144,8 @@ while True:
         print("Choix invalide")
 
 
-       ########## Partie 6: Comprehensions (Listes et Dictionnaires)
+    
 
-
-
-
-print("Nombre de datasets :", len(datasets))               ###Nombres de Datasets 
-total = sum(d["lignes"] for d in datasets)                 #### Nombres de Lignes
-print("Nombre total de lignes :", total)
 
 
 
