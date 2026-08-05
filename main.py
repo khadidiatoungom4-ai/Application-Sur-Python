@@ -1,69 +1,199 @@
-# Partie 1: Types de base, variables, Entrées et sorties
-print("  Les métadonnées d'un dataset  ")
-nom  = input("Nom du projet :  ")
-domaine = input("Domaine : ")
-lignes = int(input("Nombre de lignes : "))
-colonnes = int(input("Nombre de colonnes : "))
-Mo = float(input("Taille en Mo : "))
-format = input("Format (csv/json) : ")
-public = input("Public True/False : ")
+# ############### Partie 1: Types de base, variables, Entrées et sortie ###############
 
+# print("=====Ajout  d'un dataset=====")
+# nom  = input("Nom du dataset :  ")
+# domaine = input("Domaine : ")
+# lignes = int(input("Nombre de lignes : "))
+# colonnes = int(input("Nombre de colonnes : "))
+# Mo = float(input("Taille en Mo : "))
+# format = input("Format (csv/json) : ")
+# public = input("Public True/False : ").lower() == "true"
+
+# print("=====Résumé=====")
+# print("Nom du dataset : ",nom) 
+# print("Domaine",domaine) 
+# print("Nombre de lignes : ",lignes) 
+# print("Nombre de colonnes : " ,colonnes) 
+# print("Taille du dataset :",Mo) 
+# print("Format",format) 
+# print("Public",public) 
+
+
+#         #              Partie 4: Tuples 
+# DOMAINE = (
+#             "Santé",
+#             "Finance",
+#             "Agriculture",
+#             "Transport",
+#             "Education"
+#         )
+  
 # Partie 2 Structure de controle : Creation d'un menu interactif
-while True:
 
+datasets = []
+
+while True:
     print("\n====================")
     print("1. Ajouter un dataset")
     print("2. Afficher les datasets")
     print("3. Rechercher")
-    print("4. Quitter")
+    print("4. Trier")
+    print("5. Modifier")
+    print("6. Supprimer")
+    print("7. Quitter")
     print("====================")
 
     choix = input("Votre choix : ")
 
     if choix == "1":
-        print("Ajout d'un dataset")
+        print(" Ajouter un dataset")
+        nom = input("")        
+        nom = input("Nom du dataset : ")
+        domaine = input("Domaine : ")
+        lignes = int(input("Nombre de lignes : "))
+        colonnes = int(input("Nombre de colonnes : "))
+        Mo = float(input("Taille du dataset : "))
+        format = input("Format : ")
+        public = input("Public : ").lower() == "true"
+        dataset = {
+                         "nom": nom,
+                         "domaine": domaine,
+                         "lignes": lignes,
+                         "colonnes": colonnes,
+                         "taille": Mo,
+                         "format": format,
+                         "public": public
+                     }
+        print(dataset)
+        datasets.append(dataset)
+        
 
-    elif choix == "2":
-        print("Affichage")
+    if choix == "2":
+        print("Afficher les datasets")
+        print("Nom du dataset : ",nom) 
+        print("Domaine",domaine) 
+        print("Nombre de lignes : ",lignes) 
+        print("Nombre de colonnes : " ,colonnes) 
+        print("Taille du dataset :",Mo) 
+        print("Format",format) 
+        print("Public",public) 
 
-    elif choix == "3":
-        print("Recherche")
+    if choix == "3":
+        nom_recherche = input("Nom du dataset à rechercher : ")
+        trouve = False
+        for d in datasets:
+         if d["nom"].lower() == nom_recherche.lower():
+            print(d)
+            trouve = True
+            break
+         if not trouve:
+            print("Dataset introuvable.")
 
-    elif choix == "4":
-        print("Au revoir")
-        break
+    if choix == "4":
+        datasets.sort(key=lambda d: d["nom"])
+        print("Liste triée :")
+        for d in datasets:
+         print(d)
+    if choix == "5":
+        nom_recherche = input("Nom du dataset à modifier : ")
+        trouve = False
+        for d in datasets:
+         if d["nom"].lower() == nom_recherche.lower():
 
+            d["domaine"] = input("Nouveau domaine : ")
+            d["lignes"] = int(input("Nouveau nombre de lignes : "))
+            d["colonnes"] = int(input("Nouveau nombre de colonnes : "))
+            d["taille"] = float(input("Nouvelle taille : "))
+            d["format"] = input("Nouveau format : ")
+            d["public"] = input("Public (true/false) : ").lower() == "true"
+
+            print("Dataset modifié avec succès.")
+            trouve = True
+            break
+
+         if not trouve:
+          print("Dataset introuvable.")
+
+    if choix == "6":
+        nom_recherche = input("Nom du dataset à supprimer : ")
+        trouve = False
+        for d in datasets:
+         if d["nom"].lower() == nom_recherche.lower():
+            datasets.remove(d)
+            print("dataset supprimé.")
+            trouve = True
+            break
+
+         if not trouve:
+          print("dataset introuvable.")
+    if choix == "7": 
+         print("Quitter")   
+         break   
+   
     else:
         print("Choix invalide")
-# Partie 3: Dictionnaires
-dataset = {
-    "nom": nom,
-    "domaine": domaine,
-    "lignes": lignes,
-    "colonnes": colonnes,
-    "taille": Mo,
-    "format": format,
-    "public": public
-}
-print(dataset["nom"])
-print(dataset["domaine"])
-print(dataset["lignes"])
-print(dataset["colonnes"])
-print(dataset["taille"])
-print(dataset["format"])
-print(dataset["public"])
-# Partie 4: Tuples 
-domaines = (
-    "Santé",
-    "Finance",
-    "Agriculture",
-    "Transport",
-    "Education"
-)
-if domaine not in domaines:
- print("Domaine non autorisé")
- domaine = input("Domaine : ")
-if domaine in domaines:
-    print("Domaine autorisé.")
-else:
-    print("Erreur : domaine non autorisé.")
+       
+
+
+            ######### Partie 3: Dictionnaires ###############
+   
+# dataset = []
+# while True:
+    
+#            print("1. Ajouter un dataset")
+
+#            choix = input("Votre choix : ")
+#            if choix == "1":
+#              print(" Ajouter un dataset")
+#              nom = input("Nom du dataset : ")
+#              DOMAINE = input("DOMAINE : ")
+#              if DOMAINE not in DOMAINE: 
+#                              print("DOMAINE non autorisé")
+#                              DOMAINE = input("DOMAINE : ")
+#              if DOMAINE in DOMAINE:
+#                               print("DOMAINE autorisé.")
+#              else: 
+#                               print("Erreur : DOMAINE non autorisé.")
+
+             
+
+#              lignes = int(input("Nombre de lignes : "))
+#              colonnes = int(input("Nombre de colonnes : "))
+#              Mo = float(input("Taille du dataset : "))
+#              format = input("Format : ")
+#              public = input("Public : ").lower() == "true"
+             
+
+        
+
+#              dataset = {
+#                 "nom": nom,
+#                 "domaine": domaine,
+#                 "lignes": lignes,
+#                 "colonnes": colonnes,
+#                 "taille": Mo,
+#                 "format": format,
+#                 "public": public
+#             }
+#            print(dataset)
+
+
+#         #              Partie 4: Tuples 
+
+#         #    domaines = (
+#         #     "Santé",
+#         #     "Finance",
+#         #     "Agriculture",
+#         #     "Transport",
+#         #     "Education"
+#         # )
+#         #    if domaine not in domaines: 
+#         #         print("Domaine non autorisé")
+#         #         domaine = input("Domaine : ")
+#         #    if domaine in domaines:
+#         #          print("Domaine autorisé.")
+#         #    else: 
+#         #          print("Erreur : domaine non autorisé.")
+
+
+# ##### Partie 5 listes 
