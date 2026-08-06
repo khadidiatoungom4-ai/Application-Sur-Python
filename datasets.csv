@@ -1,0 +1,3 @@
+nom,domaine,lignes,colonnes,taille,format,public
+Titanic ,Transport,891,12,48.0,csv,True
+Titanic 2,Santé,800,16,50.0,json,False

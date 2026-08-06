@@ -28,10 +28,9 @@
 #             "Education"
 #         )
   
-             ##### Partie 6 : Comprehensions (Listes et Dictionnaires)
-
+             ##### Partie 7: Sauvegardem recharge et affichage des donnees 
+import csv
 datasets = []
-
 while True:
     print("\n====================")
     print("1. Ajouter un dataset")
@@ -41,7 +40,9 @@ while True:
     print("5. Modifier")
     print("6. Supprimer")
     print("7. Statistiques")
-    print("8. Quitter")
+    print("8. Sauvegarder dans csv")
+    print("9. Recharger et afficher dans csv")
+    print("10. Quitter")
     print("====================")
 
     choix = input("Votre choix : ")
@@ -138,10 +139,36 @@ while True:
          for domaine, nombre in repartition.items():
           print(domaine, ":", nombre)
     if choix == "8":
+     with open("datasets.csv", "w", newline="", encoding="utf-8") as fichier:
+
+        champs = [
+            "nom",
+            "domaine",
+            "lignes",
+            "colonnes",
+            "taille",
+            "format",
+            "public"
+        ]
+
+        writer = csv.DictWriter(fichier, fieldnames=champs)
+
+        writer.writeheader()
+
+        writer.writerows(datasets)
+
+    print("Datasets sauvegardés dans datasets.csv")
+     
+    if choix == "9":
+      with open("datasets.csv", "r", encoding="utf-8") as fichier:  # r: read
+       reader = csv.DictReader(fichier)
+       for ligne in reader:
+        print(ligne)
+    if choix == "10":
        print("Quitter")
        break
-    else:
-        print("Choix invalide")
+   
+
 
 
     
