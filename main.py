@@ -1,13 +1,13 @@
 # ############### Partie 1: Types de base, variables, Entrées et sortie ###############
 
-# print("=====Ajout  d'un dataset=====")
-# nom  = input("Nom du dataset :  ")
-# domaine = input("Domaine : ")
-# lignes = int(input("Nombre de lignes : "))
-# colonnes = int(input("Nombre de colonnes : "))
-# Mo = float(input("Taille en Mo : "))
-# format = input("Format (csv/json) : ")
-# public = input("Public True/False : ").lower() == "true"
+print("=====Ajout  d'un dataset=====")
+nom  = input("Nom du dataset :  ")
+domaine = input("Domaine : ")
+lignes = int(input("Nombre de lignes : "))
+colonnes = int(input("Nombre de colonnes : "))
+Mo = float(input("Taille en Mo : "))
+format = input("Format (csv/json) : ")
+public = input("Public True/False : ").lower() == "true"
 
 # print("=====Résumé=====")
 # print("Nom du dataset : ",nom) 
@@ -28,7 +28,7 @@
 #             "Education"
 #         )
   
-             ##### Partie 7: Sauvegardem recharge et affichage des donnees 
+             ##### Partie 8: Gerer les Exceptions 
 import csv
 datasets = []
 while True:
@@ -51,10 +51,18 @@ while True:
         print(" Ajouter un dataset")       
         nom = input("Nom du dataset : ")
         domaine = input("Domaine : ")
-        lignes = int(input("Nombre de lignes : "))
-        colonnes = int(input("Nombre de colonnes : "))
-        Mo = float(input("Taille du dataset : "))
+        try: 
+         lignes = int(input("Nombre de lignes : "))
+        except ValueError:print("Erreur: vous devez entrer un nombre")
+        try: 
+          lignes = int(input("Nombre de Colonnes : "))
+        except ValueError:print("Erreur: vous devez entrer un nombre")
+
+        try: 
+           lignes = int(input("Nombre de lignes : "))
+        except ValueError:print("Erreur: vous devez entrer un nombre")
         format = input("Format : ")
+
         public = input("Public : ").lower() == "true"
         dataset = {
                          "nom": nom,
@@ -160,17 +168,19 @@ while True:
     print("Datasets sauvegardés dans datasets.csv")
      
     if choix == "9":
-      with open("datasets.csv", "r", encoding="utf-8") as fichier:  # r: read
+     try:      ### Cette commande permet de gerer les exceptions#### 
+      with open("datasets.csv", "r", encoding="utf-8") as fichier:  
        reader = csv.DictReader(fichier)
        for ligne in reader:
-        print(ligne)
+         print(ligne)
+     except FileNotFoundError:
+       print("Le fichier datasets.csv est introuvable")
+
     if choix == "10":
        print("Quitter")
        break
    
-
-
-
+           
     
 
 
