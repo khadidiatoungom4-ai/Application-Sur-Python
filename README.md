@@ -8,5 +8,5 @@ Dans ce projet nous avons développé une application python permettant de gére
 - sauvegarder les informations dans des fichiers ;
 - charger automatiquement les données enregistrées ;
 - gérer les erreurs d'utilisation.
-  ## Thématiques abordées
+## Thématiques abordées
   Dans ce projet nous avons abordé les dictionnaires, listes, tuples, les exceptions, les fonctions et modules.
